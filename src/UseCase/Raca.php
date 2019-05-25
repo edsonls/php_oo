@@ -1,5 +1,8 @@
 <?php
-require_once '../Drive/DataAccess.php';
+
+namespace App\UseCase;
+
+use App\Drive\DataAccess;
 
 class Raca implements UseCase
 {
@@ -14,9 +17,8 @@ class Raca implements UseCase
     public function find()
     {
         $con = $this->dataAccess->getConnection();
-        return $con->query("SELECT * FROM " . TABLE)
+        return $con->query("SELECT * FROM " . self::TABLE)
             ->fetchAll();
-
     }
 
     public function findById($id)

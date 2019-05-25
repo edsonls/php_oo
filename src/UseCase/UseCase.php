@@ -1,9 +1,9 @@
 <?php
 
+namespace App\UseCase;
 
 interface UseCase
 {
-    const TABLE = '';
 
     public function __construct();
 

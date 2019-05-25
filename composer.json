@@ -1,0 +1,21 @@
+{
+  "license": "MIT",
+  "name": "sis-iti-malia",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Edson Lima Silva Júnior",
+      "email": "edson-b-o@hotmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/",
+      "App\\View\\": "views/"
+    }
+  },
+  "require": {
+    "ext-pdo": "*",
+    "ext-json": "*"
+  }
+}

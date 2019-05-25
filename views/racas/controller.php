@@ -12,6 +12,17 @@ switch ($_POST['op']) {
         $raca = new Raca();
         echo json_encode($raca->find());
         break;
+    case 2:
+        $racaObj = new \App\Model\Raca();
+        $racaObj->setNome($_POST['nome']);
+        $racaUseCase = new Raca();
+        if ($racaUseCase->save($racaObj)) {
+            header('Location: index.php');
+        } else {
+            echo 'erro ao salvar';
+        }
+        break;
     default:
         echo 0;
+        break;
 }

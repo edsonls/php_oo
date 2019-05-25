@@ -7,6 +7,7 @@ use App\Drive\DataAccess;
 class Raca implements UseCase
 {
     const TABLE = 'racas';
+    const INSERT = 'INSERT INTO ' . self::TABLE . ' (nome) values(:nome)';
     private $dataAccess;
 
     public function __construct()
@@ -26,9 +27,22 @@ class Raca implements UseCase
         // TODO: Implement findById() method.
     }
 
+
+    /**
+     * @param $obj \App\Model\Raca
+     *
+     * @return bool
+     */
     public function save($obj)
     {
-        // TODO: Implement save() method.
+        try {
+            $con = $this->dataAccess->getConnection();
+            $sth = $con->prepare(self::INSERT);
+            return $sth->execute([':nome' => $obj->getNome()]);
+        } catch (\Exception $e) {
+            var_dump($e);
+            exit();
+        }
     }
 
 
